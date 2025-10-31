@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Prezentacja i Kahoot</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* ustawia elementy jeden pod drugim */
+  justify-content: center; /* wyśrodkowanie w pionie */
+  align-items: center; /* wyśrodkowanie w poziomie */
+  color: white;
+  font-family: sans-serif;
+  background: linear-gradient(-45deg, #ff6a00, #ee0979, #00c6ff, #0072ff);
+  background-size: 300% 300%;
+  animation: move 8s ease infinite;
+}
+@keyframes move {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 255, 251);
+  font-size: 2em;
+  margin: 20px 0; /* odstępy między linkami */
+}
+
+audio {
+  margin-bottom: 40px; /* trochę przestrzeni pod odtwarzaczem */
+}
+</style>
+</head>
+<body>
+
+<audio id="player" controls>
+  <source src="oo.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<a href="https://prezi.com/p/z3cqlhj93zq5/?present=1" target="_blank">
+  POKAZ SLAJDÓW
+</a>
+
+<a href="https://play.kahoot.it/v2/?quizId=94db9968-78fd-4d8a-ab69-8c0ab6865c25&hostId=6a16d1b1-80f6-47a8-a99b-2f4da6b1451d" target="_blank">
+  KAHOOT
+</a>
+
+<script>
+const songs = ["oo.mp3"];
+let i = 0;
+const player = document.getElementById("player");
+
+function nextSong() {
+  i = (i + 1) % songs.length;
+  player.src = songs[i];
+  player.play();
+}
+</script>
+
+</body>
+</html>
